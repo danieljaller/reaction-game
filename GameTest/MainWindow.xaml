@@ -7,6 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid Name="startPage" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Bottom" Margin="10">REACTION GAME</TextBlock>
+            <Button Grid.Row="1" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" MinHeight="50" MinWidth="70" Content="START" Click="Button_Click"/>
+        </Grid>
+        <Grid Name="waitForIt" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" FontSize="20">WAIT FOR IT...</TextBlock>
+        </Grid>
+        <Grid Name="go" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60">GO!</TextBlock>
+        </Grid>
+        <Grid Name="displayWinner" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Bottom" Margin="10">WINNER:</TextBlock>
+            <TextBlock Name="winner" Grid.Row="1" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+                <Button Name="buttonRestart" Content="Restart" MinWidth="60" Margin="10" Click="buttonRestart_Click"/>
+                <Button Name="buttonQuit" Content="Quit" MinWidth="60" Margin="10" Click="buttonQuit_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
-</Window>
+    </Window>
