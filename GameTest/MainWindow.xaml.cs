@@ -23,6 +23,7 @@ namespace GameTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace GameTest
         }
         private void Start()
         {
+
             startPage.Visibility = Visibility.Visible;
             waitForIt.Visibility = Visibility.Hidden;
             go.Visibility = Visibility.Hidden;
@@ -47,9 +49,9 @@ namespace GameTest
             var randomizer = new Random();
             int timeSpan = randomizer.Next(3000, 5000);
             await Task.Delay(timeSpan);
+            KeyDown += PressKeyOnGo;
             waitForIt.Visibility = Visibility.Hidden;
             go.Visibility = Visibility.Visible;
-            KeyDown += PressKeyOnGo;            
         }
 
         private void PressKeyOnGo(object sender, KeyEventArgs e)
@@ -62,13 +64,17 @@ namespace GameTest
             {
                 DisplayWinner("L");
             }
+
         }
+
+
 
         private void DisplayWinner(string winningPlayer)
         {
             go.Visibility = Visibility.Hidden;
             displayWinner.Visibility = Visibility.Visible;
             winner.Text = winningPlayer;
+            KeyDown -= PressKeyOnGo;
         }
 
         private void buttonRestart_Click(object sender, RoutedEventArgs e)
